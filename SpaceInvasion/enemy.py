@@ -1,5 +1,5 @@
 import pygame
-from random import randint
+from random import uniform
 
 from ship import Ship
 
@@ -9,7 +9,7 @@ class Enemy(Ship):
 		self.dir = 1;
 		self.distance = 100
 		self.origin = self.rect.x
-		self.bullet_cooldown = randint(0,1000)
+		self.bullet_cooldown = uniform(0,4)
 
 	def set_move_range(self,distance):
 		self.origin = self.rect.x
@@ -34,11 +34,11 @@ class Enemy(Ship):
 
 		if self.bullet_cooldown <= 0:
 			self.shoot_bullet()
-			self.bullet_cooldown = randint(0,1000)
+			self.bullet_cooldown = uniform(0,4)
 
 		self.bullet_update(deltaTime_s)
 
-		self.bullet_cooldown -= 1
+		self.bullet_cooldown -= deltaTime_s
 
 
 
