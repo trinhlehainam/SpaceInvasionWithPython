@@ -20,9 +20,9 @@ class Ship(Object):
 			new_bullet.copy_attributes(self.bullet_prototype)
 			self.bullets.append(new_bullet)
 
-	def bullet_update(self):
+	def bullet_update(self, deltaTime_s):
 		for bullet in self.bullets:
-			bullet.update()
+			bullet.update(deltaTime_s)
 
 		for bullet in self.bullets:
 			if bullet.active == False:

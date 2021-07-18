@@ -16,9 +16,9 @@ class Bullet(Object):
 		self.rect = pygame.Rect(other.rect.x, other.rect.y,other. rect.width, other.rect.height)
 		self.limit = other.limit
 
-	def update(self):
-		self.rect.x += self.vel[0]
-		self.rect.y += self.vel[1]
+	def update(self, deltaTime_s):
+		self.rect.x += (self.vel[0] * deltaTime_s)
+		self.rect.y += (self.vel[1] * deltaTime_s)
 		if self.check_limit_position() == True:
 			self.active = False
 	
