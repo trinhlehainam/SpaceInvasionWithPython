@@ -98,6 +98,8 @@ class App:
 			if object.active == False:
 				self.objects.remove(object)
 
+		if self.objects == []:
+			self.__init__()
 
 
 	def render(self):
